@@ -52,13 +52,14 @@ public class Service {
                             ":" + inetSocketAddress.getPort() + "\t");
 
                     ByteBuffer byteBuffer=ByteBuffer.allocate(1024);
-                    byte[] res = new byte[1024];
+                    //byte[] res = new byte[1024];
                     int len=0;
                     try {
                     while ((len=socketChannel.read(byteBuffer))!=0){
                         byteBuffer.flip();
-                        byteBuffer.get(res,0,len);
-                        System.out.println(new String(res, 0, len));
+                        //byteBuffer.get(res,0,len);
+                        //System.out.println(new String(res, 0, len));
+                        System.out.println(new String(byteBuffer.array(),0,len));
                         byteBuffer.clear();
                     }
                     }catch (IOException e){
